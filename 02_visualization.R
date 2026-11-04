@@ -70,3 +70,35 @@ ggplot(data = weather, mapping = aes(x = factor(month), y = wind_speed)) +
   geom_boxplot()
 
 # Barplots ----
+
+fruits <- tibble(fruit = c("apple", "apple", "orange", "apple", "orange"))
+
+fruits_counted <- tibble(
+  fruit = c("apple", "orange"),
+  number = c(3, 2))
+
+fruits
+
+fruits_counted
+
+ggplot(data = fruits, mapping = aes(x = fruit)) +
+  geom_bar()
+
+ggplot(data = fruits_counted, mapping = aes(x = fruit, y = number)) +
+  geom_col()
+
+ggplot(data = flights, mapping = aes(x = carrier)) +
+  geom_bar()
+
+ggplot(data = flights, mapping = aes(x = carrier, fill = origin)) +
+  geom_bar()
+
+ggplot(data = flights, mapping = aes(x = carrier, color = origin)) +
+  geom_bar()
+
+ggplot(data = flights, mapping = aes(x = carrier, fill = origin)) +
+  geom_bar(position = "dodge")
+
+ggplot(data = flights, mapping = aes(x = carrier)) +
+  geom_bar() +
+  facet_wrap(~ origin, ncol = 1)
